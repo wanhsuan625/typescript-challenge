@@ -10,6 +10,10 @@
  * @param age - 一個需要被分類的年齡
  * @returns - 回傳年齡的分類結果
  */
+
 export function classifyAge(age: number): string {
-    // 請在此處寫下你的程式碼
+    if( age <= 12 ) return 'Child';
+    if( age < 18 ) return 'Teenager';
+    if( age < 65 ) return 'Adult';
+    return 'Senior';
 }
