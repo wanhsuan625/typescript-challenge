@@ -20,7 +20,12 @@ interface AddressInfo {
  */
 
 // 請在此處寫下你的程式碼
-
+interface FullUserInfo {
+    name : BasicUserInfo["name"];
+    age: BasicUserInfo["age"];
+    street: AddressInfo["street"];
+    city: AddressInfo["city"];
+}
 
 /**
  * 任務：實作一個函式 `createFullUserInfo`，將使用者的基本資訊和地址資訊合併成一個物件。
@@ -33,5 +38,5 @@ interface AddressInfo {
  * @returns - 回傳一個物件，表示合併後的使用者資訊
  */
 export function createFullUserInfo(user: FullUserInfo): FullUserInfo {
-    // 請在此處寫下你的程式碼
+    return ({name: user.name , age: user.age , street: user.street , city: user.city });
 }
