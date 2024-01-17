@@ -6,15 +6,19 @@
  */
 
 
-export function asyncSum(numbers: number[]): Promise<number> {
+export function asyncSum( numbers: number[] ): Promise<number> {
     return new Promise((resolve, reject) => {
         try {
-            // 請在此處寫下你的程式碼
-        } catch (error) {
+            let sum: number = numbers.reduce( ( arr, curr ) => arr + curr , 0);           // 空陣列的檢測，要補上initial value
+            resolve(sum);
+        } 
+        catch (error) {
             reject(error);
         }
     });
 }
 
+asyncSum([1,2,3,4,5]);
+    // .then( res => console.log(res) );
 
 // 備註：題目中即使累加操作本身是同步的，也可以使用 Promise 來模擬非同步的情況。這可以讓學生練習如何使用 Promise 來處理非同步操作

@@ -12,7 +12,8 @@ interface Product {
 export function createShoppingCart() {
     let items: Product[] = [];
 
-    function addItem(item: Product) {
+    // 新增物品至購物車
+    function addItem(item: Product): void {
         items.push(item);
     }
     /**
@@ -20,15 +21,24 @@ export function createShoppingCart() {
      * @returns - 回傳購物車中所有商品的總價
      * 範例：getTotalPrice() 應該回傳 300，假設購物車中有兩個商品，價格分別為 100 和 200
      */
-    function getTotalPrice() {
-        // 請在此處寫下你的程式碼
+
+    // 購物車所有品項 總金額
+    function getTotalPrice(): number {
+        let sum = 0;           // 給定初始值0， 這樣即使購物車空空，也會回傳 0
+        items.forEach( item => {
+            sum += item.price;
+        })
+
+        return sum;
     }
 
-    function getItemCount() {
+    // 計算 品項總數
+    function getItemCount(): number {
         return items.length;
     }
 
-    function clear() {
+    // 清空購物車
+    function clear(): void {
         items = [];
     }
 

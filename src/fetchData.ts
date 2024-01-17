@@ -6,4 +6,19 @@
  */
 
 // 請在下方寫下你的程式碼
+const url = "https://jsonplaceholder.typicode.com/todos/1";
 
+export const fetchData = async ( url: string ) => {
+    try{
+        const response = await fetch(url);
+        const data = response.json();
+
+        return data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
+fetchData(url);
+    // .then( res => console.log(res) );
